@@ -17,6 +17,10 @@ public class Main {
                 case 1: {
                     System.out.println("enter student id:");
                     int id = sc.nextInt();
+                    if (id <= 0) {
+                        System.out.println("Invalid ID.");
+                        break;
+                    }
                     System.out.println("enter student name:");
                     String name = sc.next();
                     System.out.println("enter student age:");

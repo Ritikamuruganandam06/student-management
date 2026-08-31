@@ -7,6 +7,22 @@ public class StudentService {
             System.out.println("already exists");
             return;
         }
+        if(student.getId() <= 0) {
+            System.out.println("invalid student id");
+            return;
+        }
+        if(student.getAge() <= 0) {
+            System.out.println("invalid age");
+            return;
+        }
+        if(student.getCourse() == null || student.getCourse().trim().isEmpty()) {
+             System.out.println("Course cannot be empty.");
+            return;
+        }
+        if(student.getName() == null || student.getName().trim().isEmpty()) {
+            System.out.println("Student name cannot be empty."); 
+            return;
+        }
         students.add(student);
         System.out.println("Student added successfully.");
     }
