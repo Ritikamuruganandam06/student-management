@@ -3,7 +3,12 @@ import java.util.List;
 public class StudentService {
     private List<Student> students = new ArrayList<>();
     public void addStudent(Student student) {
+        if(studentExists(student.getId())) {
+            System.out.println("already exists");
+            return;
+        }
         students.add(student);
+        System.out.println("Student added successfully.");
     }
     public void viewStudents() {
         for(Student student : students) {
@@ -42,5 +47,13 @@ public class StudentService {
         else {
             System.out.println("student not found");
         }
+    }
+    public boolean studentExists(int id) {
+        for(Student student : students) {
+            if(student.getId() == id) {
+                return true;
+            }
+        }
+        return false;
     }
 }

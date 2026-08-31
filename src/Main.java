@@ -25,7 +25,6 @@ public class Main {
                     String course = sc.next();
                     Student student = new Student(id, name, age, course);
                     service.addStudent(student);
-                    System.out.println("Student added successfully.");
                     break;
                 }
                 case 2 : {
