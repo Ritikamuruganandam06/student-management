@@ -21,4 +21,26 @@ public class StudentService {
         }
         return null;
     }
+    public void updateStudent(int id, String name, int age, String course) {
+        Student student = searchStudent(id);
+        if(student != null) {
+            student.setName(name);
+            student.setAge(age);
+            student.setCourse(course);
+            System.out.println("student updated successfully");
+        }
+        else {
+            System.out.println("student not found");
+        }
+    }
+    public void deleteStudent(int id) {
+        Student student = searchStudent(id);
+        if(student != null) {
+            students.remove(student);
+            System.out.println("student deleted successfully");
+        }
+        else {
+            System.out.println("student not found");
+        }
+    }
 }
