@@ -14,6 +14,7 @@ public class Main {
             System.out.println("6. Exit");
             System.out.println("7. Sort Students by Name");
             System.out.println("8. Find Students by Course");
+            System.out.println("9. Student Statistics");
             System.out.print("Enter choice: ");
             int choice;
             try{
@@ -93,6 +94,10 @@ public class Main {
                     String course = sc.nextLine();
                     service.findByCourse(course);
                     break;
+                }
+                case 9:{
+                service.showStatistics();
+                break;
                 }
                 default :
                 System.out.println("invalid choice");

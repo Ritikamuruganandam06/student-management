@@ -101,4 +101,17 @@ public class StudentService {
             System.out.println("no students found for this course");
         }
     }
+    public void showStatistics() {
+        if(students.isEmpty()) {
+            System.out.println("no students found");
+            return;
+        }
+        int total = 0;
+        for(Student student : students) {
+            total += student.getAge();
+        }
+        double averageAge = (double)total / students.size();
+        System.out.println("total students: "+students.size());
+        System.out.println("average age: " + averageAge);
+    }
 }
