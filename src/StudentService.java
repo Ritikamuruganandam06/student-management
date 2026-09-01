@@ -27,6 +27,10 @@ public class StudentService {
         System.out.println("Student added successfully.");
     }
     public void viewStudents() {
+        if(students.isEmpty()) {
+            System.out.println("no students found");
+            return;
+        }
         for(Student student : students) {
             System.out.println("id: "+student.getId());
             System.out.println("name: "+student.getName());
@@ -71,5 +75,30 @@ public class StudentService {
             }
         }
         return false;
+    }
+    public void sortByName() {
+        if(students.isEmpty()) {
+            System.out.println("no students found");
+            return;
+        }
+        students.sort((s1,s2) -> s1.getName().compareToIgnoreCase(s2.getName()));
+        System.out.println("sorted by name");
+        viewStudents();
+    }
+    public void findByCourse(String course) {
+        boolean found = false;
+        for(Student student : students) {
+            if(student.getCourse().equalsIgnoreCase(course)) {
+                System.out.println("id: "+student.getId());
+                System.out.println("name:"+student.getName());
+                System.out.println("age:"+student.getAge());
+                System.out.println("course:" + student.getCourse());
+                System.out.println("----------------");
+                found = true;
+            }
+        }
+        if(!found) {
+            System.out.println("no students found for this course");
+        }
     }
 }

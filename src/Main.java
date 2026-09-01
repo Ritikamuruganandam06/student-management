@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -11,8 +12,18 @@ public class Main {
             System.out.println("4. Update Student");
             System.out.println("5. Delete Student");
             System.out.println("6. Exit");
+            System.out.println("7. Sort Students by Name");
+            System.out.println("8. Find Students by Course");
             System.out.print("Enter choice: ");
-            int choice = sc.nextInt();
+            int choice;
+            try{
+            choice = sc.nextInt();
+            }
+            catch(InputMismatchException e) {
+                System.out.println("invalid input.please enter a number");
+                sc.nextLine();
+                continue;
+            }
             switch (choice) {
                 case 1: {
                     System.out.println("enter student id:");
@@ -71,6 +82,17 @@ public class Main {
                 case 6: {
                     System.out.println("Exiting...");
                     return;
+                }
+                case 7: {
+                    service.sortByName();
+                    break;
+                }
+                case 8: {
+                    sc.nextLine();
+                    System.out.println("enter course");
+                    String course = sc.nextLine();
+                    service.findByCourse(course);
+                    break;
                 }
                 default :
                 System.out.println("invalid choice");
